@@ -37,7 +37,7 @@ The main goal of this project is to automate the ingestion of NYC taxi trip data
 
 ## Project Structure
 
-nyc-taxi-trip-ingestion/  
+MiniProject/  
 ├── my-express-app/  
 │   ├── views/ * HTML and CSS scripts for the endpoints *  
 │   │   ├── index.ejs  
