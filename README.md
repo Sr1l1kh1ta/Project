@@ -108,8 +108,8 @@ MiniProject/
 2. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/nyc-taxi-trip-ingestion.git
-   cd nyc-taxi-trip-ingestion
+   git clone https://github.com/Sr1l1kh1ta/Project.git
+   cd Project
    ```
 
 3. \*Install Dependencies\*\*:
