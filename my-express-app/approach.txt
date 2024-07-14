@@ -1,0 +1,197 @@
+SYSTEM DESIGN
+
+TECH STACKS USED
+
+    Python, JavaScript(Node.js, Express.js), HTML and CSS, MongoDB.
+
+
+1. DATA INGESTION
+
+    Using Web Scraping we have extracted the data from the given URL which has multiple download links to parquet files with the 
+    help of BeautifulSoup library. 
+    
+    To send the requests to the website we have used "requests" library in python to fetch the links of the parquet files.
+    
+    For handling input and output operations related to reading the files "io" library is used.
+    
+    Used Pandas to convert those parquet files into dictionaries then pushed the data to the MongoDB database.
+    
+    Used Mongoose library to estabilish connection with the database in mongoDB.
+
+
+2. BACKEND
+
+    We have used Node.js and Express.js to create HTTP endpoints to get the data from the MongoDB database. We have also created charts
+    showing various analytics. Since MongoDB is a very popular NoSQL database (Document Database), express.js and Node.js are more compatible
+    and offer better overall performance.
+
+3. FRONTEND
+
+    Frontend technologies used here are HTML and CSS, to design a userfriendly interface and to display charts and tables more effectively.
+    The scripts of few endpoints are written in ejs (Embedded JavaScript documents) which has both HTML and CSS scripts combined in same file.
+    This will ensure that project structure is not bulky and one script is used for one endpoint URL.
+
+UNDERSTANDING THE DATA
+
+    The Data retrieved is in parquet format. It is converted to semi-structured data JSON data for further analysis.
+    The schema of the data is
+
+    • `_id`: MongoDB ObjectId
+    • `VendorID`: Integer
+    • `tpep_pickup_datetime`: ISODate
+    • `tpep_dropoff_datetime`: ISODate
+    • `passenger_count`: Integer
+    • `trip_distance`: Float
+    • `RatecodeID`: Integer
+    • `store_and_fwd_flag`: String
+    • `PULocationID`: Integer
+    • `DOLocationID`: Integer
+    • `payment_type`: Integer
+    • `fare_amount`: Float
+    • `extra`: Float
+    • `mta_tax`: Float
+    • `tip_amount`: Float
+    • `tolls_amount`: Float
+    • `improvement_surcharge`: Float
+    • `total_amount`: Float
+    • `congestion_surcharge`: Float
+    • `airport_fee`: Float or Null
+
+
+
+ENDPOINTS
+
+    - GET /trips/feb and GET /trips/mar
+        Retrieves trips data for the month.
+
+    - GET /trips/feb/duration and GET /trips/mar/duration
+        Retrieves the duration of each trip and in the output table containing columns vendor_id, pickup_time, drop_time, trip_duration
+        for the month of feb 2019 and mar 2019.
+        For the trip duration we have subtracted the pickup_time variable and drop_time variable.
+
+    - GET /trips/feb/duration/vendor and GET /trips/mar/duration/vendor
+        Retrieves the duration of trips for each vendor along with the number of trips in the month.
+        In the output table only the vendor_id, no_of trips and total duration of that particular vendor is shown.
+        For getting total duration of each vendor, we have created an accumulator with key containing vendor_id and value 
+        containing trip duration, trip counts iterated through all the records to get the total trip duration and trip counts.
+
+    - GET /trips/feb/cleaned and GET /trips/mar/cleaned
+        Retrieves cleaned data of the month from the database. For this endpoint we have used pandas to handle null values in the
+        Transformations.py file. We have used fillna() method of pandas library.
+
+
+    - GET /trips/feb/hourly and GET /trips/mar/hourly 
+        Generates the bar chart of hourly trips in the month. We have used chartJSNodeCanvas to generate the bar chart of the table.
+        To display both the bar chart and table in the page we have used flexbox in CSS for better alignment.
+
+    - GET /trips/feb/revenue and GET /trips/mar/revenue
+        Generates the bar chart of hourly revenue in the month. From this chart we can derive insights about revenue generated in peak hours.
+        We have used chartJSNodeCanvas to generate the bar chart of the table.
+
+    - GET /trips/feb/payment-types and GET /trips/mar/payment-types
+        Generates a pie chart containing compositions of different payment methods used by passengers in the given month.
+        We have used chartJSNodeCanvas to generate the pie chart of the table.
+
+    - GET /trips/feb/distance-analysis and GET /trips/mar/distance-analysis
+        Generates a bar chart containing no of trips classified based on distance in units.
+        We have used chartJSNodeCanvas to generate the bar chart of the table.
+
+SYSTEM DESIGN
+
+    OBJECTIVE AND REQUIREMENTS
+
+        The main goal of this project is to automate the ingestion of NYC taxi trip data into a MongoDB database 
+        and provide analytical insights through a web interface. This serves as a foundation for data analysis, 
+        enabling insights into taxi usage patterns, fare structures, trip characteristics, and vendor performance in New York City.
+
+        We need to fetch the data from external source and then transform the data into suitable format for the database.
+        Clean and transform the data for visualization and analysis and to create a user friendly interface.
+
+    HOW COMPONENTS INTERACT
+                                    +---------------------------------------------------------+
+                                    |                                                         |
+                                    |                  User Interaction                       |
+                                    |                                                         |
+                                    +-------------------------+-------------------------------+
+                                                            |
+                                                            |
+                                                            v
+                                    +-------------------------+-------------------------------+
+                                    |                                                         |
+                                    |                   HTTP Endpoints                        |
+                                    |                   (Express.js app)                      |
+                                    |                                                         |
+                                    | - User sends requests to endpoints                      |
+                                    | - Endpoints interact with MongoDB                       |
+                                    |                                                         |
+                                    +-------------------------+-------------------------------+
+                                                            |
+                                                            |
+                                                            v
+                                    +-------------------------+-------------------------------+
+                                    |                                                         |
+                                    |                  MongoDB Database                       |
+                                    |                                                         |
+                                    | - Stores raw trip records data                          |
+                                    | - Stores cleaned and transformed data                   |
+                                    |                                                         |
+                                    +-------------------------+-------------------------------+
+                                                            ^
+                                                            |
+                                                            |
+                                    +-------------------------+-------------------------------+
+                                    |                                                         |
+                                    |       Data Transformation and Cleaning Script           |
+                                    |               (Python, Pandas)                          |
+                                    |                                                         |
+                                    | - Fetches raw data from MongoDB                         |
+                                    | - Cleans and transforms data                            |
+                                    | - Stores processed data back into MongoDB               |
+                                    |                                                         |
+                                    +-------------------------+-------------------------------+
+                                                            ^
+                                                            |
+                                                            |
+                                    +-------------------------+-------------------------------+
+                                    |                                                         |
+                                    |               Data Ingestion Script                     |
+                                    |               (Python, BeautifulSoup, PyArrow)          |
+                                    |                                                         |
+                                    | - Scrapes data from NYC TLC trip record page            |
+                                    | - Downloads Parquet files                               |
+                                    | - Loads data into MongoDB                               |
+                                    |                                                         |
+                                    +---------------------------------------------------------+
+
+
+
+        BACKEND COMPONENTS
+            scrape.py  - Fetches the data, parses and transforms data into suitable format(Document based format in this case)
+            App.js  - Creating different endpoints to access analyze and visualize data from the database. 
+            Transformations.py - Cleans and transforms the required raw data.
+
+        FRONTEND COMPONENTS
+            ejs templates - To render data on the webpages
+            css styles - To make data look user friendly.
+
+    USER INTERFACE
+        - Home page (index.ejs): The ejs file that displays the home page.
+        - Feb trips page (febTrips.ejs): Visualization of feb trips data.
+        - March trips page (marTrips.ejs): Visualization of mar trips data.
+        - Feb Duration Page (febDuration.ejs): Visualization of trip duration in Feb month
+        - Mar Duration Page (marDuration.ejs): Visualization of trip duration in Mar month.
+        - Hourly trips Page (hourlytrips.ejs): Bar chart Visualization of no of trips per hour. 
+        - Hourly revenue Page (hourlyrevenue.ejs): Bar chart Visualization of revenue per hour.
+        - Payment type Page (paymenttypes.ejs):  Pie chart Visualization of Payment types. 
+        - Distance Analysis Page (distanceanalysis.ejs): Bar chart visualization of No of trips classified based on distance 
+
+
+
+
+
+
+
+
+
+
+
