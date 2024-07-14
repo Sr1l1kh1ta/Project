@@ -67,7 +67,7 @@ nyc-taxi-trip-ingestion/
 ├── images/ * contains all the images of the results from the get requests *
 └── .gitignore
 
-Backend
+## Backend
 • `Node.js` and `Express`: Used to create HTTP endpoints for data retrieval and insights.
 Frontend
 • `HTML` and `CSS`: Used to create a user-friendly interface for displaying insights.
