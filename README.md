@@ -68,7 +68,7 @@ nyc-taxi-trip-ingestion/
 └── .gitignore
 
 ## Backend
-• `Node.js` and `Express`: Used to create HTTP endpoints for data retrieval and insights.
+• **`Node.js` and `Express`**: Used to create HTTP endpoints for data retrieval and insights.
 Frontend
 • `HTML` and `CSS`: Used to create a user-friendly interface for displaying insights.
 Data Ingestion and Processing
