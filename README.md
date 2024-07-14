@@ -6,7 +6,7 @@ NYC Taxi Trip Records Data Ingestion and Analysis
 
 ## Team Info
 
-Srilikhita Balla
+Srilikhita Balla   
 S Jaya Harsha Vardhan
 
 ## Description
@@ -80,7 +80,7 @@ Data Ingestion and Processing
 
 ## Architecture diagram
 
-![Architecure Diagram](images/Architecture%20diagram.jpg)
+![Architecure Diagram](images/Architecture%20diagram.png)
 
 ## How components interact
 
@@ -223,4 +223,3 @@ The data ingested into MongoDB will have the following schema:
 
 This comprehensive overview provides a detailed guide for understanding, setting up, and contributing to the project. It ensures that both developers and users can effectively engage with and utilize the project's functionalities.
 
-![Project Logo](images/image.jpg)
