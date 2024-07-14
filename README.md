@@ -176,6 +176,8 @@ Frontend
 - **marDuration.ejs**: The ejs script that displays the insights of the endpoint /trips/mar/duration.
 - **hourlytrips.ejs**: The ejs script that displays the insights of the endpoint /trips/feb/hourly and trips/mar/hourly.
 - **hourlyrevenue.ejs**: The ejs script that displays the insights of the endpoint /trips/feb/revenue and /trips/mar/revenue.
+- **paymenttypes.ejs**: The ejs script that displays the insights of the endpoint /trips/feb/payment-types and trips/mar/payment-types.
+- **distanceanalysis.ejs**: The ejs script that displays the insights of the endpoint /trips/feb/distance-analysis and trips/mar/distance-analysis.  
 ![Endpoint-charts using HTML ](images/febhourly.PNG)
 
 ## Data Schema
