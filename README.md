@@ -37,46 +37,46 @@ The main goal of this project is to automate the ingestion of NYC taxi trip data
 
 ## Project Structure
 
-nyc-taxi-trip-ingestion/
-├── my-express-app/
-│   ├── views/ * HTML and CSS scripts for the endpoints *
-│   │   ├── index.ejs
-│   │   ├── febTrips.ejs
-│   │   ├── marTrips.ejs
-│   │   ├── febDuration.ejs
-│   │   ├── marDuration.ejs
-│   │   ├── paymenttypes.ejs
-│   │   ├── distanceanalysis.ejs
-│   │   ├── hourlytrips.ejs
-│   │   └── hourlyrevenue.ejs
-│   ├── public/
-│   │   └── styles.css
-│   ├── node_modules/
-│   ├── modules/
-│   │   └── tripModel.js * MongoDB model for trip schema *
-│   ├── config/
-│   │   ├── db.js * MongoDB configuration file *
-│   │   ├── app.js * main application entry point *
-│   │   ├── package-lock.json * json source file *
-│   │   └── package.json * json source file *
-├── app.py
-├── Architecture diagram.png
-├── scrape.py * Python file for data ingestion *
-├── Transformations.py * Data is cleaned and transformed Backend *
-├── README.md
-├── images/ * contains all the images of the results from the get requests *
-└── .gitignore
+nyc-taxi-trip-ingestion/  
+├── my-express-app/  
+│   ├── views/ * HTML and CSS scripts for the endpoints *  
+│   │   ├── index.ejs  
+│   │   ├── febTrips.ejs  
+│   │   ├── marTrips.ejs  
+│   │   ├── febDuration.ejs  
+│   │   ├── marDuration.ejs  
+│   │   ├── paymenttypes.ejs  
+│   │   ├── distanceanalysis.ejs  
+│   │   ├── hourlytrips.ejs  
+│   │   └── hourlyrevenue.ejs  
+│   ├── public/  
+│   │   └── styles.css  
+│   ├── node_modules/  
+│   ├── modules/  
+│   │   └── tripModel.js * MongoDB model for trip schema *  
+│   ├── config/  
+│   │   ├── db.js * MongoDB configuration file *  
+│   │   ├── app.js * main application entry point *  
+│   │   ├── package-lock.json * json source file *  
+│   │   └── package.json * json source file *  
+├── app.py  
+├── Architecture diagram.png  
+├── scrape.py * Python file for data ingestion *  
+├── Transformations.py * Data is cleaned and transformed Backend *  
+├── README.md  
+├── images/ * contains all the images of the results from the get requests *  
+└── .gitignore  
 
-## Backend
-• **`Node.js` and `Express`**: Used to create HTTP endpoints for data retrieval and insights.
-Frontend
-• `HTML` and `CSS`: Used to create a user-friendly interface for displaying insights.
-Data Ingestion and Processing
-• `requests`: Used for sending HTTP requests to the NYC TLC website.
-• `pandas`: Utilized for reading and processing Parquet files.
-• `BeautifulSoup`: Employed for parsing HTML and extracting links.
-• `pymongo`: Used for connecting to and interacting with MongoDB.
-• `io`: Handles input/output operations for reading Parquet files.
+### Backend
+• `Node.js` and `Express`: Used to create HTTP endpoints for data retrieval and insights.  
+### Frontend
+• `HTML` and `CSS`: Used to create a user-friendly interface for displaying insights.  
+### Data Ingestion and Processing
+• `requests`: Used for sending HTTP requests to the NYC TLC website.  
+• `pandas`: Utilized for reading and processing Parquet files.  
+• `BeautifulSoup`: Employed for parsing HTML and extracting links.  
+• `pymongo`: Used for connecting to and interacting with MongoDB.  
+• `io`: Handles input/output operations for reading Parquet files.  
 
 ## Architecture diagram
 
