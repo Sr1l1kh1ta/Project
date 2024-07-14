@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>March Trips</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>March Trips</h1>
+    </div>
+    <div class="container">
+        <div class="nav">
+            <a href="/">Home</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <% Object.keys(trips[0]).forEach(key => { %>
+                        <th><%= key %></th>
+                    <% }) %>
+                </tr>
+            </thead>
+            <tbody>
+                <% trips.forEach(trip => { %>
+                    <tr>
+                        <% Object.values(trip).forEach(value => { %>
+                            <td><%= value %></td>
+                        <% }) %>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
