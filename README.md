@@ -178,28 +178,28 @@ Frontend
 - **hourlyrevenue.ejs**: The ejs script that displays the insights of the endpoint /trips/feb/revenue and /trips/mar/revenue.
 ![Endpoint-charts using HTML ](images/febhourly.PNG)
 
-Data Schema
+## Data Schema
 The data ingested into MongoDB will have the following schema:
-• `_id`: MongoDB ObjectId
-• `VendorID`: Integer
-• `tpep_pickup_datetime`: ISODate
-• `tpep_dropoff_datetime`: ISODate
-• `passenger_count`: Integer
-• `trip_distance`: Float
-• `RatecodeID`: Integer
-• `store_and_fwd_flag`: String
-• `PULocationID`: Integer
-• `DOLocationID`: Integer
-• `payment_type`: Integer
-• `fare_amount`: Float
-• `extra`: Float
-• `mta_tax`: Float
-• `tip_amount`: Float
-• `tolls_amount`: Float
-• `improvement_surcharge`: Float
-• `total_amount`: Float
-• `congestion_surcharge`: Float
-• `airport_fee`: Float or Null
+- `_id`: MongoDB ObjectId <br>
+- `VendorID`: Integer  <br>
+- `tpep_pickup_datetime`: ISODate <br>
+- `tpep_dropoff_datetime`: ISODate
+- `passenger_count`: Integer
+- `trip_distance`: Float
+- `RatecodeID`: Integer
+- `store_and_fwd_flag`: String
+- `PULocationID`: Integer
+- `DOLocationID`: Integer
+- `payment_type`: Integer
+- `fare_amount`: Float
+- `extra`: Float
+- `mta_tax`: Float
+- `tip_amount`: Float
+- `tolls_amount`: Float
+- `improvement_surcharge`: Float
+- `total_amount`: Float
+- `congestion_surcharge`: Float
+- `airport_fee`: Float or Null
 
 ## Error Handling
 
