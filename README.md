@@ -209,8 +209,12 @@ The data ingested into MongoDB will have the following schema:
 
 ## Future Improvements
 
-- Cloud Integration 
-  
+- Cloud Integration for better scalability, agility.We can use the following services  
+  - AWS S3: Store raw and processed data in Amazon S3 for scalable and durable storage.  
+  - AWS Lambda: Use AWS Lambda for serverless computing, allowing functions to run in response to events.  
+  - AWS Glue: A managed ETL (Extract, Transform, Load) service to automate the data preparation process.  
+  - AWS Athena: An interactive query service to analyze data in Amazon S3 using standard SQL.  
+    Migrating the current project to cloud can imporve the scalability, elasticity, highavailability.   
 
 ## References
 
