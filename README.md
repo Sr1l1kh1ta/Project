@@ -39,7 +39,7 @@ The main goal of this project is to automate the ingestion of NYC taxi trip data
 
 nyc-taxi-trip-ingestion/
 ├── my-express-app/
-│ ├── views/ \* HTML and CSS scripts for the endpoints\*
+│ ├── views/ * HTML and CSS scripts for the endpoints*
 │ ├── index.ejs
 │ ├── febTrips.ejs
 │ ├── marTrips.ejs
@@ -53,18 +53,18 @@ nyc-taxi-trip-ingestion/
 │ ├── styles.css
 │ ├── node_modules/
 │ ├── modules/
-│ │ └── tripModel.js \* MongoDB model for trip schema \*
+│ │ └── tripModel.js * MongoDB model for trip schema *
 │ └── config/
-│ ├── db.js \* MongoDB configuration file \*
-│ ├── app.js \* main application entry point \*
-│ ├── package-lock.json \* json source file \*
-| └── package.js \* json source file \*
+│ ├── db.js * MongoDB configuration file *
+│ ├── app.js * main application entry point *
+│ ├── package-lock.json * json source file *
+| └── package.js * json source file *
 ├── app.py
 ├── Architecture diagram.png
-├── scrape.py \* Python file for data ingestion \*
-├── Transformations.py \* Data is cleaned and transformed Backend \*
+├── scrape.py * Python file for data ingestion *
+├── Transformations.py * Data is cleaned and transformed Backend *
 ├── README.md
-├── images/ \* contains all the images of the results from the get requests \*
+├── images/ * contains all the images of the results from the get requests *
 └── .gitignore
 
 Backend
